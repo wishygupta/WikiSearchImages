@@ -1,0 +1,2 @@
+rootProject.name = "WikiSearchImages"
+include ':app'
