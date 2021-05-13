@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mine.wikisearchimages.R
 import com.mine.wikisearchimages.databinding.FragmentImagesBinding
@@ -52,11 +55,16 @@ class ImagesFragment : Fragment(), ImagesAdapter.ImageItemListener {
 
     private fun setupRecyclerView() {
         adapter = ImagesAdapter(this)
-        binding.imagesContainer.layoutManager = LinearLayoutManager(requireContext())
+        binding.imagesContainer.layoutManager = GridLayoutManager(requireContext(),2)
         binding.imagesContainer.adapter = adapter
     }
 
 
     override fun onClickedImage(imgUrl: String) {
+        findNavController().navigate(
+            R.id.action_imagesFragment_to_imageDetailFragment,
+            bundleOf("imgUrl" to imgUrl)
+        )
     }
+
 }
