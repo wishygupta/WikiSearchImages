@@ -1,5 +1,5 @@
 # WikiSearchImages
-Search Images from wiki API , show in Grid and on click - show image on next screen
+Search Images from wiki API - store in DB , show in Grid and on click - show image on next screen
 
 Libraries used
 - Dagger Hilt - dependency injection
